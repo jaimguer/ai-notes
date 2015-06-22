@@ -28,14 +28,14 @@ a rational decision, we use probability theory.
 
 Probabilities are about asserting if something will happen, relative to other events.  Here are some basic definitions.
 1. ** sample space **: the set of all possible worlds that are under our consideration.
-    * Denoted as $ \Omega $.
-    * Each $ \omega \in \Omega $ gets a probability assigned to it.
-    * $ 0 \leq P(\omega) \leq 1, \forall \omega \in \Omega $.
-    * $\sum_{\omega \in \Omega} P(\omega) = 1 $.
+    + Denoted as $ \Omega $.
+    + Each $ \omega \in \Omega $ gets a probability assigned to it.
+    + $ 0 \leq P(\omega) \leq 1, \forall \omega \in \Omega $.
+    + $\sum_{\omega \in \Omega} P(\omega) = 1 $.
 2. ** events ** are sets of possible worlds that satisfy a given property.
-    * The probability of an event is the sum of the probabilities of the
+    + The probability of an event is the sum of the probabilities of the
       events satisfying the property
-    * Example : Given two dice, $ P(roll = 11) = P(5,6) + P(6,5) = \frac{1}{18}$
+    + Example : Given two dice, $ P(roll = 11) = P(5,6) + P(6,5) = \frac{1}{18}$
 3. Probabilities of events with no other information are called *priors* or *unconditional probabilities*.
 4. *Posterior (conditional)* probabilities are those probabilities given some other piece of information.
 5. $ P(a \land b) = P (a \vert b) P(b) $
