@@ -36,8 +36,7 @@ Probabilities are about asserting if something will happen, relative to other ev
     * The probability of an event is the sum of the probabilities of the
       events satisfying the property
     * Example : Given two dice, $ P(roll = 11) = P(5,6) + P(6,5) = \frac{1}{18}$
-3. Probabilities of events with no other information are called *priors* or
-   *unconditional probabilities*.
+3. Probabilities of events with no other information are called *priors* or *unconditional probabilities*.
 4. *Posterior (conditional)* probabilities are those probabilities given some other piece of information.
 5. $ P(a \land b) = P (a \vert b) P(b) $
 
