@@ -1,0 +1,109 @@
+\documentclass[10pt, twocolumn]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=0.75in]{geometry}
+\begin{document}
+\section*{Quantifying Uncertainty}
+
+\subsection*{Acting Under Uncertainty}
+
+\subsubsection*{Why are agents uncertain?}
+\begin{enumerate}
+    \itemsep -4pt
+    \item Nondeterminism in the world, and in their behavior
+    \item Partial observability of the world.  If the agent can't see what is
+          going on, the agent can't think about its actions.
+\end{enumerate}
+
+\subsubsection*{How do agents deal with their uncertainty?}
+Most agents keep around a \textit{belief state}, which is a list of all possible
+worlds the agent might currently be in.  This works for small problem spaces
+but has some issues overall.
+\begin{enumerate}
+    \itemsep -4pt
+    \item An agent would need to keep track of \textit{every} possible world, no
+          matter how unlikely that world is.
+    \item Contingency plans the agent might create become exceedingly large as
+          a result of not measuring likelihood.
+    \item Sometimes, there is no promise that any plan will actually acheive
+          the agent's goal, but the agent must act regardless.
+\end{enumerate}
+
+The agent's goal is always to maximize its performance measure.  To do that,
+it must weigh the relative importance of its goals with considerations on the
+likelihood it will acheive those goals.  To summarize its uncertainty and make
+a rational decision, we use probability theory.
+
+\subsection*{Basic Probability Notation}
+
+Probabilities are about asserting if something will happen, relative to other
+events.  Here are some basic definitions.
+\begin{enumerate}
+    \itemsep -4pt
+    \item \textbf{sample space}: the set of all possible worlds that are under
+          our consideration.
+        \begin{enumerate}
+            \item Denoted as $ \Omega $.
+            \item Each $ \omega \in \Omega $ gets a probability assigned to it.
+            \item $ 0 \leq P(\omega) \leq 1, \forall \omega \in \Omega $.
+            \item $\sum_{\omega \in \Omega} P(\omega) = 1 $.
+        \end{enumerate}
+    \item  \textbf{events} are sets of possible worlds that satisfy a given property.
+    \item The probability of an event is the sum of the probabilities of the
+          events satisfying the property.  As an example, given two dice,
+          $ P(roll = 11) = P(5,6) + P(6,5) = \frac{1}{18}$.
+    \item Probabilities of events with no other information are called
+          \textbf{priors} or \textbf{unconditional probabilities}.
+    \item \textbf{Posterior (conditional) probabilities} are those
+          probabilities given some other piece of information.
+    \item $ P(a \land b) = P (a \vert b) P(b) $. This rearrainges to the more
+        familiar fractional equation of conditional probabilities.
+    \item A \textbf{probability distribution} of a discrete random variable is
+        a listing of the values the random variable can take.
+    \item $ P(\lnot a) = 1 - \sum P(a) $
+    \item $ P(a \lor b) = P(a) + P(b) - P(a \land b) $
+    \item \textbf{Joint probability distribution}: the probability of random
+          variables $X$ and $Y$ occurring.
+      \item \textbf{Full joint probability distribution}: the joint
+          distribution of all random variables.
+\end{enumerate}
+
+\subsection*{Inference Using Full Joint Distributions}
+A \textbf{marginal probability} is one that is gathered from a full joint
+probability distribution, wherein all other random variables have been
+ignored.  Symbolically,
+\[
+    P(Y) = \sum_{z \in Z} P(Y \land z).
+\]
+Following Russell and Norvig's example,
+\[
+    P(cavity) = P(cavity \land toothache) +  P(cavity \land catch).
+\]
+This process is called \textit{marginalization}. Analogously,
+\textit{conditioning} is similar but uses conditional probabilities instead.
+
+\[
+    P(Y) = \sum_{z \in Z} P(Y \vert z)P(z).
+\]
+This follows directly from point 6 above.
+
+\subsection*{Independence}
+Sometimes things are not related at all; for example, the weather does not
+influence whether not you have a cavity, toothache, and catch at the dentist's
+office.  Random variables that are not related are called
+\textbf{independent}. Mathematically, $P(a \vert b) = P(a)$.  But since $P (a
+\land b) = P(a \vert b) P(b)$, the probability of two independent events
+happening is $P(a\land b) = P(a)P(b)$.
+
+A slight modification to this is when two events are \textit{conditionally independent}.  That means that given some condition, the condition applies to both events. $P(a \land b \vert c) = P(a \vert c) P(b \vert c)$.
+
+\subsection*{Bayes' Rule and Its Use}
+Note the equivalence of the following two equations.  $P(a \land b) = P(a \vert b) P(b)$ and $P(a \land b) = P(b \vert a) P(a)$.  Equating the two and dividing gives Bayes' rule (theorem, law)
+\[
+    P(b \vert a) = \frac{P(a\vert b) P(b)}{P(a)}.
+\]
+
+
+\end{document}
+
